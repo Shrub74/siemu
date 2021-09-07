@@ -230,7 +230,7 @@ int disassembleOp(unsigned char *buffer, int pc)
             printf("CMC      ");
             break;
 
-        // Row 4
+        // Row 5
         case 0x40:
             printf("MOV     B,B");
             break;
@@ -280,7 +280,7 @@ int disassembleOp(unsigned char *buffer, int pc)
             printf("MOV     C,A");
             break;
 
-        // Row 5
+        // Row 6
         case 0x50:
             printf("MOV     D,B");
             break;
@@ -330,6 +330,105 @@ int disassembleOp(unsigned char *buffer, int pc)
             printf("MOV     E,A");
             break;
 
+        // Row 7
+        case 0x60:
+            printf("MOV     H,B");
+            break;
+        case 0x61:
+            printf("MOV     H,C");
+            break;
+        case 0x62:
+            printf("MOV     H,D");
+            break;
+        case 0x63:
+            printf("MOV     H,E");
+            break;
+        case 0x64:
+            printf("MOV     H,H");
+            break;
+        case 0x65:
+            printf("MOV     H,L");
+            break;
+        case 0x66:
+            printf("MOV     H,M");
+            break;
+        case 0x67:
+            printf("MOV     H,A");
+            break;
+        case 0x68:
+            printf("MOV     L,B");
+            break;
+        case 0x69:
+            printf("MOV     L,C");
+            break;
+        case 0x6A:
+            printf("MOV     L,D");
+            break;
+        case 0x6B:
+            printf("MOV     L,E");
+            break;
+        case 0x6C:
+            printf("MOV     L,L");
+            break;
+        case 0x6D:
+            printf("MOV     L,L");
+            break;
+        case 0x6E:
+            printf("MOV     L,M");
+            break;
+        case 0x6F:
+            printf("MOV     L,A");
+            break;
+
+        // Row 8
+        case 0x70:
+            printf("MOV     M,B");
+            break;
+        case 0x71:
+            printf("MOV     M,C");
+            break;
+        case 0x72:
+            printf("MOV     M,D");
+            break;
+        case 0x73:
+            printf("MOV     M,E");
+            break;
+        case 0x74:
+            printf("MOV     M,H");
+            break;
+        case 0x75:
+            printf("MOV     M,L");
+            break;
+        case 0x76:
+            printf("HLT        ");
+            break;
+        case 0x77:
+            printf("MOV     M,A");
+            break;
+        case 0x78:
+            printf("MOV     A,B");
+            break;
+        case 0x79:
+            printf("MOV     A,C");
+            break;
+        case 0x7A:
+            printf("MOV     A,D");
+            break;
+        case 0x7B:
+            printf("MOV     A,E");
+            break;
+        case 0x7C:
+            printf("MOV     A,H");
+            break;
+        case 0x7D:
+            printf("MOV     A,L");
+            break;
+        case 0x7E:
+            printf("MOV     A,M");
+            break;
+        case 0x7F:
+            printf("MOV     A,A");
+            break;
 
         default:
             printf("---");
