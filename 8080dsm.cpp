@@ -39,8 +39,8 @@ int disassembleOp(unsigned char *buffer, int pc)
         case 0x07:
             printf("RLC     ");
             break;
-        case 0x08:
-            printf("DSUB    BC");
+        case 0x08:  // Illegal
+            printf("NOP     !");
             break;
         case 0x09:
             printf("DAD     BC");
@@ -66,8 +66,8 @@ int disassembleOp(unsigned char *buffer, int pc)
             break;
         
         // Row 2
-        case 0x10:
-            printf("ARHL    ");
+        case 0x10:  // Illegal
+            printf("NOP     !");
             break;
         case 0x11:
             printf("LXI     DE, #%02x%02x", code[2], code[1]);
@@ -92,8 +92,8 @@ int disassembleOp(unsigned char *buffer, int pc)
         case 0x17:
             printf("RAL     ");
             break;
-        case 0x18:
-            printf("RDEL    ");
+        case 0x18:  // Illegal
+            printf("NOP     !");
             break;
         case 0x19:
             printf("DAD     DE");
@@ -120,14 +120,14 @@ int disassembleOp(unsigned char *buffer, int pc)
         
         // Row 3
         case 0x20:
-            printf("RIM     ");
+            printf("NOP     !");
             break;
         case 0x21:
             printf("LXI     HL, #%02x%02x", code[2], code[1]);
             opbytes = 3;
             break;
         case 0x22:
-            printf("SHLD    , #%02x%02x", code[2], code[1]);
+            printf("SHLD        #%02x%02x", code[2], code[1]);
             opbytes = 3;
             break;
         case 0x23:
@@ -146,15 +146,14 @@ int disassembleOp(unsigned char *buffer, int pc)
         case 0x27:
             printf("DAA     ");
             break;
-        case 0x28:
-            printf("LDHI    DE,  #%02x", code[1]);
-            opbytes = 2;
+        case 0x28:  // Illegal
+            printf("NOP     !");
             break;
         case 0x29:
             printf("DAD     H ");
             break;
         case 0x2A:
-            printf("LHLD    , #%02x%02x", code[2], code[1]);
+            printf("LHLD        #%02x%02x", code[2], code[1]);
             opbytes = 3;
             break;
         case 0x2B:
@@ -175,15 +174,15 @@ int disassembleOp(unsigned char *buffer, int pc)
             break;
 
         // Row 4
-        case 0x30:
-            printf("SIM     ");
+        case 0x30:  // Illegal
+            printf("NOP     !");
             break;
         case 0x31:
             printf("LXI     SP, #%02x%02x", code[2], code[1]);
             opbytes = 3;
             break;
         case 0x32:
-            printf("STA       #%02x%02x", code[2], code[1]);
+            printf("STA         #%02x%02x", code[2], code[1]);
             opbytes = 3;
             break;
         case 0x33:
@@ -202,15 +201,14 @@ int disassembleOp(unsigned char *buffer, int pc)
         case 0x37:
             printf("STC     ");
             break;
-        case 0x38:
-            printf("LDSI    DE,  #%02x", code[1]);
-            opbytes = 2;
+        case 0x38:  // Illegal
+            printf("NOP     !");
             break;
         case 0x39:
             printf("DAD     SP");
             break;
         case 0x3A:
-            printf("LDA     , #%02x%02x", code[2], code[1]);
+            printf("LDA         #%02x%02x", code[2], code[1]);
             opbytes = 3;
             break;
         case 0x3B:
@@ -382,52 +380,484 @@ int disassembleOp(unsigned char *buffer, int pc)
 
         // Row 8
         case 0x70:
-            printf("MOV     M,B");
+            printf("ADD     B");
             break;
         case 0x71:
-            printf("MOV     M,C");
+            printf("ADD     C");
             break;
         case 0x72:
-            printf("MOV     M,D");
+            printf("ADD     D");
             break;
         case 0x73:
-            printf("MOV     M,E");
+            printf("ADD     E");
             break;
         case 0x74:
-            printf("MOV     M,H");
+            printf("ADD     H");
             break;
         case 0x75:
-            printf("MOV     M,L");
+            printf("ADD     L");
             break;
         case 0x76:
-            printf("HLT        ");
+            printf("ADD     M");
             break;
         case 0x77:
-            printf("MOV     M,A");
+            printf("ADD     A");
             break;
         case 0x78:
-            printf("MOV     A,B");
+            printf("ADC     B");
             break;
         case 0x79:
-            printf("MOV     A,C");
+            printf("ADC     C");
             break;
         case 0x7A:
-            printf("MOV     A,D");
+            printf("ADC     D");
             break;
         case 0x7B:
-            printf("MOV     A,E");
+            printf("ADC     E");
             break;
         case 0x7C:
-            printf("MOV     A,H");
+            printf("ADC     H");
             break;
         case 0x7D:
-            printf("MOV     A,L");
+            printf("ADC     L");
             break;
         case 0x7E:
-            printf("MOV     A,M");
+            printf("ADC     M");
             break;
         case 0x7F:
-            printf("MOV     A,A");
+            printf("ADC     A");
+            break;
+
+        // Row 9
+        case 0x80:
+            printf("SUB     B");
+            break;
+        case 0x81:
+            printf("SUB     C");
+            break;
+        case 0x82:
+            printf("SUB     D");
+            break;
+        case 0x83:
+            printf("SUB     E");
+            break;
+        case 0x84:
+            printf("SUB     H");
+            break;
+        case 0x85:
+            printf("SUB     L");
+            break;
+        case 0x86:
+            printf("SUB     M");
+            break;
+        case 0x87:
+            printf("SUB     A");
+            break;
+        case 0x88:
+            printf("SBB     B");
+            break;
+        case 0x89:
+            printf("SBB     C");
+            break;
+        case 0x8A:
+            printf("SBB     D");
+            break;
+        case 0x8B:
+            printf("SBB     E");
+            break;
+        case 0x8C:
+            printf("SBB     H");
+            break;
+        case 0x8D:
+            printf("SBB     L");
+            break;
+        case 0x8E:
+            printf("SBB     M");
+            break;
+        case 0x8F:
+            printf("SBB     A");
+            break;
+
+        // Row 10
+        case 0x90:
+            printf("ANA     B");
+            break;
+        case 0x91:
+            printf("ANA     C");
+            break;
+        case 0x92:
+            printf("ANA     D");
+            break;
+        case 0x93:
+            printf("ANA     E");
+            break;
+        case 0x94:
+            printf("ANA     H");
+            break;
+        case 0x95:
+            printf("ANA     L");
+            break;
+        case 0x96:
+            printf("ANA     M");
+            break;
+        case 0x97:
+            printf("ANA     A");
+            break;
+        case 0x98:
+            printf("XRA     B");
+            break;
+        case 0x99:
+            printf("XRA     C");
+            break;
+        case 0x9A:
+            printf("XRA     D");
+            break;
+        case 0x9B:
+            printf("XRA     E");
+            break;
+        case 0x9C:
+            printf("XRA     H");
+            break;
+        case 0x9D:
+            printf("XRA     L");
+            break;
+        case 0x9E:
+            printf("XRA     M");
+            break;
+        case 0x9F:
+            printf("XRA     A");
+            break;
+
+
+        // Row 11
+        case 0xA0:
+            printf("ORA     B");
+            break;
+        case 0xA1:
+            printf("ORA     C");
+            break;
+        case 0xA2:
+            printf("ORA     D");
+            break;
+        case 0xA3:
+            printf("ORA     E");
+            break;
+        case 0xA4:
+            printf("ORA     H");
+            break;
+        case 0xA5:
+            printf("ORA     L");
+            break;
+        case 0xA6:
+            printf("ORA     M");
+            break;
+        case 0xA7:
+            printf("ORA     A");
+            break;
+        case 0xA8:
+            printf("CMP     B");
+            break;
+        case 0xA9:
+            printf("CMP     C");
+            break;
+        case 0xAA:
+            printf("CMP     D");
+            break;
+        case 0xAB:
+            printf("CMP     E");
+            break;
+        case 0xAC:
+            printf("CMP     H");
+            break;
+        case 0xAD:
+            printf("CMP     L");
+            break;
+        case 0xAE:
+            printf("CMP     M");
+            break;
+        case 0xAF:
+            printf("CMP     A");
+            break;
+
+        // Row 12
+        case 0xB0:
+            printf("ORA     B");
+            break;
+        case 0xB1:
+            printf("ORA     C");
+            break;
+        case 0xB2:
+            printf("ORB     D");
+            break;
+        case 0xB3:
+            printf("ORB     E");
+            break;
+        case 0xB4:
+            printf("ORB     H");
+            break;
+        case 0xB5:
+            printf("ORB     L");
+            break;
+        case 0xB6:
+            printf("ORB     M");
+            break;
+        case 0xB7:
+            printf("ORB     B");
+            break;
+        case 0xB8:
+            printf("CMP     B");
+            break;
+        case 0xB9:
+            printf("CMP     C");
+            break;
+        case 0xBA:
+            printf("CMP     D");
+            break;
+        case 0xBB:
+            printf("CMP     E");
+            break;
+        case 0xBC:
+            printf("CMP     H");
+            break;
+        case 0xBD:
+            printf("CMP     L");
+            break;
+        case 0xBE:
+            printf("CMP     M");
+            break;
+        case 0xBF:
+            printf("CMP     A");
+            break;
+
+        // Row 13
+        case 0xC0:
+            printf("RNZ      ");
+            break;
+        case 0xC1:
+            printf("POP     B");
+            break;
+        case 0xC2:
+            printf("JNZ         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xC3:
+            printf("JMP         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xC4:
+            printf("CNZ         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xC5:
+            printf("PUSH    B");
+            break;
+        case 0xC6:
+            printf("ADI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xC7:
+            printf("RST     0");
+            break;
+        case 0xC8:
+            printf("RZ       ");
+            break;
+        case 0xC9:
+            printf("RET      ");
+            break;
+        case 0xCA:
+            printf("JZ          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xCB:  // Illegal
+            printf("JMP       ! #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xCC:
+            printf("CZ          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xCD:
+            printf("CALL        #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xCE:
+            printf("ACI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xCF:
+            printf("RST      ");
+            break;
+
+        // Row 14
+        case 0xD0:
+            printf("RNC      ");
+            break;
+        case 0xD1:
+            printf("POP     D");
+            break;
+        case 0xD2:
+            printf("JNC         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xD3:
+            printf("OUT      ");
+            break;
+        case 0xD4:
+            printf("CNC         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xD5:
+            printf("PUSH    D");
+            break;
+        case 0xD6:
+            printf("SUI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xD7:
+            printf("RST     2");
+            break;
+        case 0xD8:
+            printf("RC       ");
+            break;
+        case 0xD9:  // Illegal
+            printf("RET     !");
+            break;
+        case 0xDA:
+            printf("JC          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xDB:
+            printf("IN          #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xDC:
+            printf("CC          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xDD:  // Illegal
+            printf("CALL      ! #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xDE:
+            printf("SBI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xDF:
+            printf("RST     3");
+            break;
+
+        // Row 15
+        case 0xE0:
+            printf("RPO      ");
+            break;
+        case 0xE1:
+            printf("POP     H");
+            break;
+        case 0xE2:
+            printf("JPO         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xE3:  // Illegal
+            printf("XTHL     !");
+            break;
+        case 0xE4:
+            printf("CPO         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xE5:
+            printf("PUSH    H");
+            break;
+        case 0xE6:
+            printf("ANI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xE7:
+            printf("RST     4");
+            break;
+        case 0xE8:
+            printf("RPE      ");
+            break;
+        case 0xE9:
+            printf("PCHL     ");
+            break;
+        case 0xEA:
+            printf("JPE         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xEB:
+            printf("XCHG     ");
+            break;
+        case 0xEC:
+            printf("CPE         #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xED:  // Illegal
+            printf("CALL      ! #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xEE:
+            printf("XRI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xEF:
+            printf("RST     5");
+            break;
+
+        // Row 16
+        case 0xF0:
+            printf("RP       ");
+            break;
+        case 0xF1:
+            printf("POP   PSW");
+            break;
+        case 0xF2:
+            printf("JP          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xF3:
+            printf("DI       ");
+            break;
+        case 0xF4:
+            printf("CP          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xF5:
+            printf("PUSH  PSW");
+            break;
+        case 0xF6:
+            printf("ORI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xF7:
+            printf("RST     6");
+            break;
+        case 0xF8:
+            printf("RM       ");
+            break;
+        case 0xF9:
+            printf("SPHL     ");
+            break;
+        case 0xFA:
+            printf("JM          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xFB:
+            printf("EI       ");
+            break;
+        case 0xFC:
+            printf("CM          #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xFD: // Illegal
+            printf("CALL      ! #%02x%02x", code[2], code[1]);
+            opbytes = 3;
+            break;
+        case 0xFE:
+            printf("CPI         #%02x", code[1]);
+            opbytes = 2;
+            break;
+        case 0xFF:
+            printf("RST     7");
             break;
 
         default:
