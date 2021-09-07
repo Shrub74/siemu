@@ -183,7 +183,7 @@ int disassembleOp(unsigned char *buffer, int pc)
             opbytes = 3;
             break;
         case 0x32:
-            printf("STA     , #%02x%02x", code[2], code[1]);
+            printf("STA       #%02x%02x", code[2], code[1]);
             opbytes = 3;
             break;
         case 0x33:
