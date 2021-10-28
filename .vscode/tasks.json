@@ -46,5 +46,29 @@
 			},
 			"detail": "compiler: C:/Development/MinGW/bin/g++.exe"
 		},
+
+		{
+			"type": "cppbuild",
+			"label": "Build Emulator (CL)",
+			"command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x64",
+			"args": [
+				"-g",
+				"${fileDirname}\\8080cpu.cpp",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "C:/Development/MinGW/bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: C:/Development/MinGW/bin/g++.exe"
+		},
+
 	]
 }

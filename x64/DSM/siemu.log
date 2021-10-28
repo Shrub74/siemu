@@ -1,0 +1,4 @@
+﻿  8080cpu.cpp
+C:\Users\jmadden\OneDrive - Ampcontrol Limited\Documents\Projects\siemu\8080cpu.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\jmadden\OneDrive - Ampcontrol Limited\Documents\Projects\siemu\8080cpu.cpp(162): warning C4715: 'Emulate8080Op': not all control paths return a value
+  siemu.vcxproj -> C:\Users\jmadden\OneDrive - Ampcontrol Limited\Documents\Projects\siemu\x64\DSM\siemu.exe

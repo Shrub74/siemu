@@ -1,0 +1,6 @@
+﻿  8080cpu.cpp
+  8080dsm.cpp
+C:\Users\jmadden\OneDrive - Ampcontrol Limited\Documents\Projects\siemu\8080dsm.cpp(877,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Generating Code...
+8080dsm.obj : error LNK2005: _main already defined in 8080cpu.obj
+C:\Users\jmadden\OneDrive - Ampcontrol Limited\Documents\Projects\siemu\Debug\siemu.exe : fatal error LNK1169: one or more multiply defined symbols found
